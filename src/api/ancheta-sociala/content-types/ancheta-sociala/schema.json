@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ancheta_socialas",
+  "info": {
+    "singularName": "ancheta-sociala",
+    "pluralName": "ancheta-socialas",
+    "displayName": "AnchetaSociala"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "copil": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::copil.copil",
+      "inversedBy": "ancheta_sociala"
+    }
+  }
+}

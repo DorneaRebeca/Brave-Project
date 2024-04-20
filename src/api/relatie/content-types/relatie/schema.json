@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "relaties",
+  "info": {
+    "singularName": "relatie",
+    "pluralName": "relaties",
+    "displayName": "Relatie"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "copil": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::copil.copil",
+      "inversedBy": "relatie"
+    },
+    "mentor": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::mentor.mentor",
+      "inversedBy": "relatie"
+    }
+  }
+}

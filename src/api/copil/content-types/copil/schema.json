@@ -1,0 +1,94 @@
+{
+  "kind": "collectionType",
+  "collectionName": "copils",
+  "info": {
+    "singularName": "copil",
+    "pluralName": "copils",
+    "displayName": "Copil",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nume": {
+      "type": "string"
+    },
+    "prenume": {
+      "type": "string"
+    },
+    "varsta": {
+      "type": "integer"
+    },
+    "sex": {
+      "type": "string"
+    },
+    "CNP": {
+      "type": "biginteger"
+    },
+    "serie_buletin": {
+      "type": "string",
+      "maxLength": 2,
+      "minLength": 2
+    },
+    "nr_buletin": {
+      "max": "999999",
+      "min": "100000",
+      "type": "biginteger"
+    },
+    "localitatea_nasterii": {
+      "type": "string"
+    },
+    "data_nasterii": {
+      "type": "date"
+    },
+    "judetul_nasterii": {
+      "type": "string"
+    },
+    "nationalitate": {
+      "type": "string"
+    },
+    "adresa": {
+      "type": "string"
+    },
+    "judet": {
+      "type": "string"
+    },
+    "telefon": {
+      "type": "string"
+    },
+    "nume_reprezentant_legal": {
+      "type": "string"
+    },
+    "prenume_reprezentant_legal": {
+      "type": "string"
+    },
+    "CNP_reprezentant_legal": {
+      "type": "biginteger"
+    },
+    "data_nasterii_reprezentant_legal": {
+      "type": "date"
+    },
+    "personalitate": {
+      "type": "enumeration",
+      "enum": [
+        "intovert",
+        "extrovert",
+        "ambivert"
+      ]
+    },
+    "relatie": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::relatie.relatie",
+      "mappedBy": "copil"
+    },
+    "ancheta_sociala": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::ancheta-sociala.ancheta-sociala",
+      "mappedBy": "copil"
+    }
+  }
+}

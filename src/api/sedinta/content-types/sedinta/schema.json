@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sedintas",
+  "info": {
+    "singularName": "sedinta",
+    "pluralName": "sedintas",
+    "displayName": "Intalniri1-1",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "data_inatlnire": {
+      "type": "date"
+    },
+    "durata_intalnire": {
+      "type": "integer"
+    },
+    "cost": {
+      "type": "decimal"
+    },
+    "jurnal_activitate": {
+      "type": "blocks"
+    }
+  }
+}
