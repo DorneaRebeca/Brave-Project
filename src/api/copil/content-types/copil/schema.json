@@ -89,6 +89,12 @@
       "relation": "oneToOne",
       "target": "api::ancheta-sociala.ancheta-sociala",
       "mappedBy": "copil"
+    },
+    "ppi": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::ppi.ppi",
+      "mappedBy": "copil"
     }
   }
 }

@@ -794,6 +794,7 @@ export interface ApiAnchetaSocialaAnchetaSociala extends Schema.CollectionType {
     singularName: 'ancheta-sociala';
     pluralName: 'ancheta-socialas';
     displayName: 'AnchetaSociala';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -804,6 +805,17 @@ export interface ApiAnchetaSocialaAnchetaSociala extends Schema.CollectionType {
       'oneToOne',
       'api::copil.copil'
     >;
+    clasa: Attribute.Integer;
+    religie: Attribute.Enumeration<
+      ['ortodox', 'neoprotestant', 'protestant', 'musulman', 'budist']
+    >;
+    nume_tata: Attribute.String;
+    prenume_tata: Attribute.String;
+    nume_mama: Attribute.String;
+    prenume_mama: Attribute.String;
+    locuinta: Attribute.String;
+    numar_camere_locuinta: Attribute.Integer;
+    alte_detalii: Attribute.Blocks;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -874,6 +886,7 @@ export interface ApiCopilCopil extends Schema.CollectionType {
       'oneToOne',
       'api::ancheta-sociala.ancheta-sociala'
     >;
+    ppi: Attribute.Relation<'api::copil.copil', 'oneToOne', 'api::ppi.ppi'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -898,6 +911,7 @@ export interface ApiMentorMentor extends Schema.CollectionType {
     singularName: 'mentor';
     pluralName: 'mentors';
     displayName: 'Mentor';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -915,6 +929,7 @@ export interface ApiMentorMentor extends Schema.CollectionType {
       'oneToOne',
       'api::relatie.relatie'
     >;
+    email: Attribute.Email & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -929,6 +944,32 @@ export interface ApiMentorMentor extends Schema.CollectionType {
       'oneToOne',
       'admin::user'
     > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPpiPpi extends Schema.CollectionType {
+  collectionName: 'ppis';
+  info: {
+    singularName: 'ppi';
+    pluralName: 'ppis';
+    displayName: 'PPI';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    copil: Attribute.Relation<'api::ppi.ppi', 'oneToOne', 'api::copil.copil'>;
+    nume_tata: Attribute.String;
+    prenume_tata: Attribute.String;
+    nume_mama: Attribute.String;
+    prenume_mama: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::ppi.ppi', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::ppi.ppi', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -1027,6 +1068,7 @@ declare module '@strapi/types' {
       'api::ancheta-sociala.ancheta-sociala': ApiAnchetaSocialaAnchetaSociala;
       'api::copil.copil': ApiCopilCopil;
       'api::mentor.mentor': ApiMentorMentor;
+      'api::ppi.ppi': ApiPpiPpi;
       'api::relatie.relatie': ApiRelatieRelatie;
       'api::sedinta.sedinta': ApiSedintaSedinta;
     }

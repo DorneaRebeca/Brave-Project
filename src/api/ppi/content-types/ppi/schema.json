@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ppis",
+  "info": {
+    "singularName": "ppi",
+    "pluralName": "ppis",
+    "displayName": "PPI"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "copil": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::copil.copil",
+      "inversedBy": "ppi"
+    },
+    "nume_tata": {
+      "type": "string"
+    },
+    "prenume_tata": {
+      "type": "string"
+    },
+    "nume_mama": {
+      "type": "string"
+    },
+    "prenume_mama": {
+      "type": "string"
+    }
+  }
+}

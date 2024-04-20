@@ -4,7 +4,8 @@
   "info": {
     "singularName": "ancheta-sociala",
     "pluralName": "ancheta-socialas",
-    "displayName": "AnchetaSociala"
+    "displayName": "AnchetaSociala",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,6 +17,40 @@
       "relation": "oneToOne",
       "target": "api::copil.copil",
       "inversedBy": "ancheta_sociala"
+    },
+    "clasa": {
+      "type": "integer"
+    },
+    "religie": {
+      "type": "enumeration",
+      "enum": [
+        "ortodox",
+        "neoprotestant",
+        "protestant",
+        "musulman",
+        "budist"
+      ]
+    },
+    "nume_tata": {
+      "type": "string"
+    },
+    "prenume_tata": {
+      "type": "string"
+    },
+    "nume_mama": {
+      "type": "string"
+    },
+    "prenume_mama": {
+      "type": "string"
+    },
+    "locuinta": {
+      "type": "string"
+    },
+    "numar_camere_locuinta": {
+      "type": "integer"
+    },
+    "alte_detalii": {
+      "type": "blocks"
     }
   }
 }
